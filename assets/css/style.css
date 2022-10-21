@@ -1,3 +1,59 @@
-body{
-    background-color: grey;
+body {
+    background-color: #f0f0f0;
 }
+
+.slides img {
+    max-width: 100%;
+    margin: auto;
+    object-fit: cover;
+}
+
+.slides img.active {
+    display: block;
+}
+
+.slides img:not(img.active) {
+    display: none;
+}
+
+.container_controls {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    translate: -50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+
+.precedente,
+.successiva {
+    background-color: #f0f0f0;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    width: 2rem;
+    line-height: 2rem;
+    text-align: center;
+
+}
+
+.precedente:hover,
+.successiva:hover {
+    cursor: pointer;
+}
+
+/* #region debug */
+
+.debug .container {
+    border: 1px solid black;
+    min-height: 500px;
+}
+
+.debug .precedente,
+.debug .successiva {
+    border: 1px solid red;
+}
+
+/* #endregion debug */
