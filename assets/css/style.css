@@ -8,13 +8,13 @@ body {
     object-fit: cover;
 }
 
-.slides img.active {
+/* .slides img.active {
     display: block;
 }
 
 .slides img:not(img.active) {
     display: none;
-}
+} */
 
 .container_controls {
     position: absolute;
@@ -28,6 +28,16 @@ body {
 }
 
 
+/* .precedente {
+    position: relative;
+    top: 10%;
+}
+
+.successiva {
+    position: relative;
+    bottom: 10%;
+} */
+
 .precedente,
 .successiva {
     background-color: #f0f0f0;
@@ -36,7 +46,6 @@ body {
     width: 2rem;
     line-height: 2rem;
     text-align: center;
-
 }
 
 .precedente:hover,
@@ -48,7 +57,6 @@ body {
 
 .debug .container {
     border: 1px solid black;
-    min-height: 500px;
 }
 
 .debug .precedente,
