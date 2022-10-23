@@ -41,124 +41,170 @@ const images = [
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
 ];
-
 ****************************************************************************/
-
-//Milestone 1:
-// Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali per popolare dinamicamente il carosello.
-// Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
-
-const slides = [
+// array con foto e caption
+const images = [
     {
         image: '01.webp',
         title: 'Marvel\'s Spiderman Miles Morale',
         text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
-    },
-
+    }, 
+    
     {
         image: '02.webp',
         title: 'Ratchet & Clank: Rift Apart',
         text: 'Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.',
-    },
-
+    }, 
+    
     {
         image: '03.webp',
         title: 'Fortnite',
         text: "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
-    },
-
+    }, 
+    
     {
         image: '04.webp',
         title: 'Stray',
         text: 'Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city',
-    },
-
+    }, 
+    
     {
         image: '05.webp',
         title: "Marvel's Avengers",
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
 ];
-console.log(slides);
+
+console.log(images);
+
+// elemetni del dom per slides e pulsanti prec/succ
+const slideContainer = document.querySelector('.slides');
+const btnPrec = document.querySelector('.precedente');
+const btnSucc = document.querySelector('.successiva');
+console.log(slideContainer);
+console.log(btnPrec);
+console.log(btnSucc);
 
 
-// seleziono gli elementi della dom
-const slidesEl = document.querySelector('.slides');
-const precedenteEl = document.querySelector('.precedente');
-const successivaEl = document.querySelector('.successiva');
-console.log(slidesEl, precedenteEl, successivaEl);
-
+//ciclo for ciclare l'array
 const srcStart = './assets/img/';
 let activeImg = 0;
 
-for (let i = 0; i < slides.length; i++) {
-
-    const slide = slides[i];
-    const imgSrc = imageSrc(srcStart, slide.image);
-
-    const cardSlide = `
-     <div>
-     <img class="img-fluid ${i === activeImg ? 'active' : ''}" src="${imgSrc}"/>
-        <h4>${slide.title}</h4>
-        <h6>${slide.text}</h6>
-    </div>`;
-    console.log(cardSlide);
-
-    slidesEl.insertAdjacentHTML('beforeend', cardSlide);
-
-}
-
-
+//FUNCTION IMAGE URL
 function imageSrc(url_1, url_2) {
     const totalSrc = (url_1 + url_2);
     return totalSrc;
 }
 
+for (let i = 0; i < images.length; i++) {
 
-// eventlistner sul pulsante precedente e successiva per alternare le immagini active
-// devo definire la prima immagine active con valore = 0 e incremntarle poi nel ciclo for
-// const imgMarkup = `<img class="img-fluid ${i === activeImage ? 'active' : ''}" src="${slideUrl}" alt= "">`;
+    const image = images[i];
+    const imgSrc = imageSrc(srcStart, image.image);
 
-successivaEl.addEventListener('click', function () {
-    console.log('Ho cliccato su next');
+    const slideMarkUp = `
+        <div class="card ${i === activeImg ? 'active' : ''}">
+            <img class="img-fluid" src="${imgSrc}" alt= "">
+            <h4>${image.title}</h4>
+            <h6>${image.text}</h6>
+        </div>`;
+    console.log(slideMarkUp);
 
-    //cambierà l’immagine attiva
-    // selezionare dalla dom l'immagine attualmente attiva
-    const activeSlideElement = document.querySelector('.slides > img.active')
-    console.log(slides[activeImg]);
+    slideContainer.insertAdjacentHTML('beforeend', slideMarkUp);
 
-    console.log(activeSlideElement);
-    // tolgo all'immagine la classe active
-    activeSlideElement.classList.remove('active');
-    // incremento active image di 1
-    activeImg++ // activeImg = activeImg + 1
-    console.log(activeImg); // al primo click il valore da 0 diventa 1
-    // seleziono tutte le immagini
-    const allSlides = document.getElementsByClassName('img-fluid')
-    // sleziono l'immagine successiva
-    const nextSlideElement = allSlides[activeImg];
-    // aggiungo alla slide successiva la class active
-    nextSlideElement.classList.add('active')
-
-});
+}
 
 
-precedenteEl.addEventListener('click', function () {
-    console.log('Ho cliccato su prev');
-    //cambierà l’immagine attiva
-    // selezionare dalla dom l'immagine attualmente attiva
-    const activeSlideElement = document.querySelector('.slides > img.active')
-    console.log(activeSlideElement);
-    // tolgo all'immagine la classe active
-    activeSlideElement.classList.remove('active');
-    // incremento active image di 1
-    activeImg-- // activeImg = activeImg + 1
-    console.log(activeImg); // al primo click il valore da 0 diventa 1
-    // seleziono tutte le immagini
-    const allSlides = document.getElementsByClassName('img-fluid')
-    // sleziono l'immagine successiva
-    const nextSlideElement = allSlides[activeImg];
-    // aggiungo alla slide successiva la class active
-    nextSlideElement.classList.add('active')
-});
+//${i === activeImg ? 'active' : ''} - ternary qualcosa
 
+
+
+
+
+
+
+
+
+
+
+
+
+/* const slideContainer = document.querySelector('.slides');
+const btnPrec = document.querySelector('.precedente');
+const btnSucc = document.querySelector('.successiva');
+console.log(slideContainer);
+console.log(btnPrec);
+console.log(btnSucc);
+
+
+//ciclo for ciclare l'array
+const srcStart = './assets/img/';
+let activeImg = 0;
+
+//FUNCTION IMAGE URL
+function imageSrc(url_1, url_2) {
+    const totalSrc = (url_1 + url_2);
+    return totalSrc;
+}
+
+for (let i = 0; i < images.length; i++) {
+
+    const image = images[i];
+    const imgSrc = imageSrc(srcStart, image.image);
+
+    const slideMarkUp = `
+        <div class="card">
+            <img class="img-fluid ${i === activeImg ? 'active' : ''}" src="${imgSrc}" alt= "">
+            <h4>${image.title}</h4>
+            <h6>${image.text}</h6>
+        </div>`;
+    console.log(slideMarkUp);
+
+    slideContainer.insertAdjacentHTML('beforeend', slideMarkUp);
+
+}
+
+
+// attivo eventlistener su SUCCESSIVA
+btnSucc.addEventListener('click', function () {
+    console.log('hai cliccato su successiva');
+
+    const activeSlideEl = document.querySelector('.slides > img.active');
+    console.log(activeSlideEl);
+
+    activeSlideEl.classList.remove('active');
+
+    activeImg++;
+    console.log(activeImg);
+
+    const allSlides = document.getElementsByClassName('img-fluid');
+    console.log(allSlides);
+    console.log(allSlides[activeImg]);
+
+    const slideSucc = allSlides[activeImg];
+
+    slideSucc.classList.add('active');
+    
+})
+
+
+// attivo eventlistener su PRECEDENTE
+btnPrec.addEventListener('click', function () {
+    console.log('hai cliccato su precedente');
+
+    const activeSlideEl = document.querySelector('.slides > img.active');
+    console.log(activeSlideEl);
+
+    activeSlideEl.classList.remove('active');
+
+    activeImg--;
+    console.log(activeImg);
+
+    const allSlides = document.getElementsByClassName('img-fluid');
+    console.log(allSlides);
+    console.log(allSlides[activeImg]);
+
+    const slideSucc = allSlides[activeImg];
+
+    slideSucc.classList.add('active');
+    
+}); */
