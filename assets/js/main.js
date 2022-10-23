@@ -114,8 +114,6 @@ for (let i = 0; i < images.length; i++) {
 }
 
 
-//${i === activeImg ? 'active' : ''} - ternary qualcosa
-
 // attivo eventlistener su SUCCESSIVA
 btnSucc.addEventListener('click', function () {
     console.log('hai cliccato su successiva');
@@ -127,15 +125,19 @@ btnSucc.addEventListener('click', function () {
 
     activeImg++;
     console.log(activeImg);
+    console.log('aaaaaaaaaaaaaaaaaaaaaaaaa');
 
     const allSlides = document.getElementsByClassName('card');
     console.log(allSlides);
     console.log(allSlides[activeImg]);
-    
+
     const slideSucc = allSlides[activeImg];
-   
+
     slideSucc.classList.add('active');
 
+    if (activeImg == 4) {
+        activeImg -=5;
+    }
 });
 
 
@@ -153,10 +155,15 @@ btnPrec.addEventListener('click', function () {
     const allSlides = document.getElementsByClassName('card');
     console.log(allSlides);
     console.log(allSlides[activeImg]);
-    
+
     const slideSucc = allSlides[activeImg];
-   
+
     slideSucc.classList.add('active');
+
+    if (activeImg == 0) {
+        activeImg += 5;
+        console.log(activeImg);
+    }
 
 });
 
