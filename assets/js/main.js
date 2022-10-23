@@ -48,26 +48,26 @@ const images = [
         image: '01.webp',
         title: 'Marvel\'s Spiderman Miles Morale',
         text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
-    }, 
-    
+    },
+
     {
         image: '02.webp',
         title: 'Ratchet & Clank: Rift Apart',
         text: 'Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.',
-    }, 
-    
+    },
+
     {
         image: '03.webp',
         title: 'Fortnite',
         text: "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
-    }, 
-    
+    },
+
     {
         image: '04.webp',
         title: 'Stray',
         text: 'Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city',
-    }, 
-    
+    },
+
     {
         image: '05.webp',
         title: "Marvel's Avengers",
@@ -107,7 +107,7 @@ for (let i = 0; i < images.length; i++) {
             <h4>${image.title}</h4>
             <h6>${image.text}</h6>
         </div>`;
-    console.log(slideMarkUp);
+    //console.log(slideMarkUp);
 
     slideContainer.insertAdjacentHTML('beforeend', slideMarkUp);
 
@@ -116,59 +116,11 @@ for (let i = 0; i < images.length; i++) {
 
 //${i === activeImg ? 'active' : ''} - ternary qualcosa
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* const slideContainer = document.querySelector('.slides');
-const btnPrec = document.querySelector('.precedente');
-const btnSucc = document.querySelector('.successiva');
-console.log(slideContainer);
-console.log(btnPrec);
-console.log(btnSucc);
-
-
-//ciclo for ciclare l'array
-const srcStart = './assets/img/';
-let activeImg = 0;
-
-//FUNCTION IMAGE URL
-function imageSrc(url_1, url_2) {
-    const totalSrc = (url_1 + url_2);
-    return totalSrc;
-}
-
-for (let i = 0; i < images.length; i++) {
-
-    const image = images[i];
-    const imgSrc = imageSrc(srcStart, image.image);
-
-    const slideMarkUp = `
-        <div class="card">
-            <img class="img-fluid ${i === activeImg ? 'active' : ''}" src="${imgSrc}" alt= "">
-            <h4>${image.title}</h4>
-            <h6>${image.text}</h6>
-        </div>`;
-    console.log(slideMarkUp);
-
-    slideContainer.insertAdjacentHTML('beforeend', slideMarkUp);
-
-}
-
-
 // attivo eventlistener su SUCCESSIVA
 btnSucc.addEventListener('click', function () {
     console.log('hai cliccato su successiva');
 
-    const activeSlideEl = document.querySelector('.slides > img.active');
+    const activeSlideEl = document.querySelector('.slides > .card.active');
     console.log(activeSlideEl);
 
     activeSlideEl.classList.remove('active');
@@ -176,22 +128,21 @@ btnSucc.addEventListener('click', function () {
     activeImg++;
     console.log(activeImg);
 
-    const allSlides = document.getElementsByClassName('img-fluid');
+    const allSlides = document.getElementsByClassName('card');
     console.log(allSlides);
     console.log(allSlides[activeImg]);
-
-    const slideSucc = allSlides[activeImg];
-
-    slideSucc.classList.add('active');
     
-})
+    const slideSucc = allSlides[activeImg];
+   
+    slideSucc.classList.add('active');
+
+});
 
 
-// attivo eventlistener su PRECEDENTE
 btnPrec.addEventListener('click', function () {
-    console.log('hai cliccato su precedente');
+    console.log('hai cliccato su successiva');
 
-    const activeSlideEl = document.querySelector('.slides > img.active');
+    const activeSlideEl = document.querySelector('.slides > .card.active');
     console.log(activeSlideEl);
 
     activeSlideEl.classList.remove('active');
@@ -199,12 +150,14 @@ btnPrec.addEventListener('click', function () {
     activeImg--;
     console.log(activeImg);
 
-    const allSlides = document.getElementsByClassName('img-fluid');
+    const allSlides = document.getElementsByClassName('card');
     console.log(allSlides);
     console.log(allSlides[activeImg]);
-
-    const slideSucc = allSlides[activeImg];
-
-    slideSucc.classList.add('active');
     
-}); */
+    const slideSucc = allSlides[activeImg];
+   
+    slideSucc.classList.add('active');
+
+});
+
+
