@@ -178,7 +178,7 @@ for (let i = 0; i < images.length; i++) {
     const imgSrc = imageSrc(srcStart, miniature.image);
 
     const miniatureMarkUp = `
-        <div><img class="img-fluid" src="${imgSrc}" alt= ""></div>`;
+        <div><img class="mini img-fluid" src="${imgSrc}" alt= ""></div>`;
     //console.log(miniatureMarkUp);
 
     containerMiniature.insertAdjacentHTML('beforeend', miniatureMarkUp);
