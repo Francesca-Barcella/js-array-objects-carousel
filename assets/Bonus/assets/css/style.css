@@ -2,9 +2,11 @@ body {
     background-color: #f0f0f0;
 }
 
+/* #region slider */
+
 .slides img {
     width: 100%;
-    height: 550px;
+    height: 500px;
     margin: auto;
     object-fit: cover;
 }
@@ -26,16 +28,19 @@ body {
     text-align: center;
     line-height: 2rem;
     background-color: red;
+    position: relative;
+    top: 250px;
 }
 
 .precedente {
     position: relative;
+    right: 20px;
 
 }
 
 .successiva {
     position: relative;
-    bottom: 10%;
+    left: 20px;
 }
 
 .card.active {
@@ -56,11 +61,25 @@ i{
     color: #f0f0f0;
 }
 
+/* #endregion slider */
+
+/* #region miniature */
+.container_thumbnails{
+  justify-content: center;
+  gap: 1rem;
+}   
+
+
+.container_thumbnails > img{
+    width: 150px;
+    aspect-ratio: 1/1;
+    object-fit: cover;    
+}
+/* #endregion miniature */
+
+
 /* #region debug */
 
-.debug .container {
-    border: 1px solid black;
-}
 
 .debug .precedente,
 .debug .successiva {
