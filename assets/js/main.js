@@ -161,7 +161,7 @@ btnPrec.addEventListener('click', function () {
     slideSucc.classList.add('active');
 
     if (activeImg == 0) {
-        activeImg += 5;
+        activeImg +=5;
         console.log(activeImg);
     }
 
