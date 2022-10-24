@@ -168,3 +168,20 @@ btnPrec.addEventListener('click', function () {
 });
 
 
+/* BONUS 1 (opzionale):
+Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente. */
+const containerMiniature = document.querySelector('.container_thumbnails');
+
+for (let i = 0; i < images.length; i++) {
+
+    const miniature = images[i];
+    const imgSrc = imageSrc(srcStart, miniature.image);
+
+    const miniatureMarkUp = `
+        <div><img class="img-fluid" src="${imgSrc}" alt= ""></div>`;
+    //console.log(miniatureMarkUp);
+
+    containerMiniature.insertAdjacentHTML('beforeend', miniatureMarkUp);
+
+}
+
