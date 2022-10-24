@@ -1,0 +1,70 @@
+body {
+    background-color: #f0f0f0;
+}
+
+.slides img {
+    width: 100%;
+    height: 550px;
+    margin: auto;
+    object-fit: cover;
+}
+
+.container {
+    padding: 2rem;
+
+}
+
+.container_slides {
+    position: relative;
+}
+
+.precedente,
+.successiva {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 2rem;
+    background-color: red;
+}
+
+.precedente {
+    position: relative;
+
+}
+
+.successiva {
+    position: relative;
+    bottom: 10%;
+}
+
+.card.active {
+    display: block;
+}
+
+.card:not(.card.active) {
+    display: none;
+}
+
+
+.precedente:hover,
+.successiva:hover {
+    cursor: pointer;
+}
+
+i{
+    color: #f0f0f0;
+}
+
+/* #region debug */
+
+.debug .container {
+    border: 1px solid black;
+}
+
+.debug .precedente,
+.debug .successiva {
+    border: 1px solid red;
+}
+
+/* #endregion debug */
